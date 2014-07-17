@@ -23,5 +23,6 @@ group :development do
   gem 'shipit'
   gem 'rspec'
   gem 'rdoc'
+  gem 'thor'
 end
 
