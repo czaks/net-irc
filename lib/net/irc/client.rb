@@ -17,6 +17,7 @@ class Net::IRC::Client
 #				:users => [],
 #			}
 		}
+		@channels.extend(MonitorMixin)
 	end
 
 	# Connect to server and start loop.
