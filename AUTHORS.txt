@@ -1,8 +1,10 @@
 Core Authors::
 cho45
 drry
+czaks
 Satoshi Nakagawa
 kouhei
+Tim Carey-Smith
 Wataru TOYA
 Yuki Sonoda (Yugui)
 yappo
@@ -10,17 +12,22 @@ yappo
 Example Contributors::
 cho45
 drry
-Keiji, Yoshimi
-shunirr
+mzp
 smbd
-dzfl
+Keiji, Yoshimi
 HIROSE Masaaki
+dzfl
+shunirr
 Kazuhiro NISHIYAMA
 Takeru Naito
+Wataru TOYA
 Yuki Sonoda (Yugui)
+czaks
 yappo
 Keisuke SATO
+SHIBATA Hiroshi
 Sotaro KARASAWA
+Tim Carey-Smith
 Tokuhiro Matsuno
-Wataru TOYA
 kusigahama
+motemen
