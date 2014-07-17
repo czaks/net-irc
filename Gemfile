@@ -1,6 +1,6 @@
-source :rubygems
+source 'https://rubygems.org'
 
-gemspec
+#gemspec
 
 gem 'mechanize', groups: [:gmail, :hcig, :mixi]
 gem 'json',
@@ -18,3 +18,12 @@ end
 group :tig do
   gem 'oauth'
 end
+
+gem 'buftok'
+
+group :development do
+  gem 'shipit'
+  gem 'rspec'
+  gem 'rdoc'
+end
+
