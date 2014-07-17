@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-#gemspec
-
 gem 'mechanize', groups: [:gmail, :hcig, :mixi]
 gem 'json',
   groups: [:hatena_star_stream, :hig, :iig, :lingr, :mixi, :tig, :wig],
