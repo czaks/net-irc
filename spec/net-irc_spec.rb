@@ -44,7 +44,7 @@ describe Net::IRC::Message, "construct" do
 
 	it "should have ctcp? method" do
 		m = Message.new("foo", "PRIVMSG", ["#channel", "\x01ACTION foo\x01"])
-		m.ctcp?.should be_true
+		m.ctcp?.should == true
 	end
 
 	it "should behave as Array contains params" do
