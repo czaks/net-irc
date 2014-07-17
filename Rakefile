@@ -17,7 +17,7 @@ include FileUtils
 $LOAD_PATH.unshift "lib"
 require "net/irc"
 
-GEMSPEC = Gem.latest_spec_for('net-irc2')
+GEMSPEC = Gem.latest_spec_for('net-irc')
 
 CLEAN.include ['**/.*.sw?', '*.gem', '.config']
 
