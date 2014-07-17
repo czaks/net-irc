@@ -17,7 +17,7 @@ include FileUtils
 $LOAD_PATH.unshift "lib"
 require "net/irc"
 
-GEMSPEC = Gem.latest_spec_for('net-irc')
+GEMSPEC = Gem.latest_spec_for('net-irc2')
 
 CLEAN.include ['**/.*.sw?', '*.gem', '.config']
 
@@ -51,7 +51,7 @@ Rake::ShipitTask.new do |s|
 	s.Task :clean, :package, :upload_doc
 	s.Step.new {
 	}.and {
-		system("gem", "push", "pkg/net-irc-#{GEMSPEC.version}.gem")
+		system("gem", "push", "pkg/net-irc2-#{GEMSPEC.version}.gem")
 	}
 	s.Tag
 	s.Twitter
