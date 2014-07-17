@@ -10,9 +10,9 @@ require "net/irc"
 require "pp"
 
 class EchoBot < Net::IRC::Client
-	def initialize(*args)
-		super
-	end
+  def initialize(*args)
+    super
+  end
 
   def on_rpl_welcome(m)
     post JOIN, "#bot_test"
@@ -24,8 +24,8 @@ class EchoBot < Net::IRC::Client
 end
 
 EchoBot.new("foobar", "6667", {
-	:nick => "foobartest",
-	:user => "foobartest",
-	:real => "foobartest",
+  :nick => "foobartest",
+  :user => "foobartest",
+  :real => "foobartest",
 }).start
 
