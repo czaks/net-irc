@@ -9,7 +9,7 @@ class Net::IRC::Client
 		@host          = host
 		@port          = port
 		@opts          = OpenStruct.new(opts)
-		@log           = @opts.logger || Logger.new($stdout)
+		@log           = @opts.logger || ::Logger.new($stdout)
 		@server_config = Message::ServerConfig.new
 		@channels = {
 #			"#channel" => {
@@ -17,31 +17,36 @@ class Net::IRC::Client
 #				:users => [],
 #			}
 		}
-		@channels.extend(MonitorMixin)
 	end
 
 	# Connect to server and start loop.
 	def start
 		# reset config
 		@server_config = Message::ServerConfig.new
-		@socket = TCPSocket.open(@host, @port)
+		@socket = TCPSocket.new(@host, @port)
 		on_connected
 		post PASS, @opts.pass if @opts.pass
 		post NICK, @opts.nick
 		post USER, @opts.user, "0", "*", @opts.real
-		while l = @socket.gets
-			begin
-				@log.debug "RECEIVE: #{l.chomp}"
-				m = Message.parse(l)
-				next if on_message(m) === true
-				name = "on_#{(COMMANDS[m.command.upcase] || m.command).downcase}"
-				send(name, m) if respond_to?(name)
-			rescue Exception => e
-				warn e
-				warn e.backtrace.join("\r\t")
-				raise
-			rescue Message::InvalidMessage
-				@log.error "MessageParse: " + l.inspect
+
+		buffer = BufferedTokenizer.new("\r\n")
+
+		while data = @socket.readpartial(4096)
+			buffer.extract(data).each do |line|
+				l = "#{line}\r\n"
+				begin
+					@log.debug "RECEIVE: #{l.chomp}"
+					m = Message.parse(l)
+					next if on_message(m) === true
+					name = "on_#{(COMMANDS[m.command.upcase] || m.command).downcase}"
+					send(name, m) if respond_to?(name)
+				rescue Exception => e
+					warn e
+					warn e.backtrace.join("\r\t")
+					raise
+				rescue Message::InvalidMessage
+					@log.error "MessageParse: " + l.inspect
+				end
 			end
 		end
 	rescue IOError
@@ -106,6 +111,6 @@ class Net::IRC::Client
 		})
 
 		@log.debug "SEND: #{m.to_s.chomp}"
-		@socket << m
+		@socket << m.to_s
 	end
 end # Client

@@ -3,7 +3,7 @@
 require "ostruct"
 require "socket"
 require "logger"
-require "monitor"
+require 'buftok'
 
 module Net; end
 
