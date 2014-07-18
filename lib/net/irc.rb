@@ -11,7 +11,7 @@ require 'buftok'
 module Net; end
 
 module Net::IRC
-  VERSION = "0.0.10".freeze
+  VERSION = "0.0.11".freeze
   class IRCException < StandardError; end
 
   require "net/irc/constants"
