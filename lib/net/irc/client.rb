@@ -83,7 +83,7 @@ class Net::IRC::Client
 
   # Default PING callback. Response PONG.
   def on_ping(m)
-    post PONG, @prefix ? @prefix.nick : ""
+    post PONG, m[0] ? m[0] : (@prefix ? @prefix.nick : "")
   end
 
   # Call when socket connected.
