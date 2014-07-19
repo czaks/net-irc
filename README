@@ -1,5 +1,5 @@
 
-= net-irc
+= net-irc2
 
 
 == Description
@@ -15,7 +15,17 @@ IRC library. This is mostly conform to RFC 1459 but partly not for convenience.
 
 === Gem Installation
 
-	gem install net-irc
+	gem install net-irc2
+
+=== Using Bundler
+
+In your Gemfile add:
+
+	gem "net-irc2"
+
+Then run:
+
+	bundle install
 
 
 == Features/Problems
@@ -66,7 +76,7 @@ Twitter:
 Wassr:
 	$ ./wig.rb
 
-Run as daemon in default. If you want to help:
+Run as daemon in default. If you want to see help:
 
 	$ ./tig.rb --help
 	Usage: tig.rb [opts]
@@ -84,8 +94,10 @@ Run as daemon in default. If you want to help:
 
 == Copyright
 
-This library is based on RICE <http://arika.org/ruby/rice> written by akira yamada.
+This library is based on Net::IRC written by cho45 <cho45@lowreal.net>, which in turn was based on
+RICE <http://arika.org/ruby/rice> written by akira yamada.
 
-Author::    cho45 <cho45@lowreal.net>
+Author::    Marcin Łabanowski <marcin@6irc.net>
 Copyright:: Copyright (c) 2008-2009 cho45
+Copyright:: Copyright (c) 2014 Marcin Łabanowski
 License::   Ruby's

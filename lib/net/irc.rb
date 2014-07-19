@@ -1,17 +1,16 @@
 #!ruby
 
 require "bundler"
-Bundler.setup
 
 require "ostruct"
 require "socket"
 require "logger"
-require 'buftok'
+require "buftok"
 
 module Net; end
 
 module Net::IRC
-  VERSION = "0.0.11".freeze
+  VERSION = "0.0.12".freeze
   class IRCException < StandardError; end
 
   require "net/irc/constants"

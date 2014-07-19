@@ -1,7 +1,7 @@
 $LOAD_PATH.unshift "lib"
 
 require 'rubygems' unless defined?(Gem)
-require 'net/irc'
+require_relative 'lib/net/irc'
 
 Gem::Specification.new do |s|
 	s.name              = "net-irc2"
@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
 	s.description       = "library for implementing IRC server and client"
 	s.author            = "Marcin Łabanowski"
 	s.email             = "marcin@6irc.net"
-	s.homepage          = "https://github.com/czaks/net-irc/"
+	s.homepage          = "https://github.com/czaks/net-irc2/"
 	s.executables       = %w()
 	s.bindir            = "bin"
 	s.require_path      = "lib"
@@ -32,4 +32,11 @@ Gem::Specification.new do |s|
 		Dir.glob("ext/**/*.{h,c,rb}") +
 		Dir.glob("examples/**/*.rb") +
 		Dir.glob("tools/*.rb")
+
+	s.add_dependency 'buftok'
+
+	s.add_development_dependency 'shipit'
+	s.add_development_dependency 'rspec'
+	s.add_development_dependency 'rdoc'
+	s.add_development_dependency 'thor'
 end

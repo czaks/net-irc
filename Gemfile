@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gemspec
+
 gem 'mechanize', groups: [:gmail, :hcig, :mixi]
 gem 'json',
   groups: [:hatena_star_stream, :hig, :iig, :lingr, :mixi, :tig, :wig],
@@ -16,8 +18,6 @@ end
 group :tig do
   gem 'oauth'
 end
-
-gem 'buftok'
 
 group :development do
   gem 'shipit'
