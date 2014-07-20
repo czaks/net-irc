@@ -24,10 +24,10 @@ class EchoBot < Net::IRC::Client
 end
 
 
-supervisor = EchoBot.supervise_as :echo_bot, "127.0.0.1", "6667", {
+supervisor = EchoBot.supervise_as :echo_bot, "188.40.141.208", "6667", {
   :nick => "foo",
   :user => "foo",
   :real => "foobartest",
 }
-supervisor.actor.start!
-sleep
+
+Celluloid::Actor[:echo_bot].start
