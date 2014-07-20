@@ -13,6 +13,11 @@ require 'celluloid/io'
 
 class EchoBot < Net::IRC::Client
   include Celluloid::IO
+  def initialize(addr,port,opt)
+    super
+    async.start
+  end
+
   def on_rpl_welcome(m)
     post JOIN, "#demo"
     super
@@ -30,4 +35,4 @@ supervisor = EchoBot.supervise_as :echo_bot, "188.40.141.208", "6667", {
   :real => "foobartest",
 }
 
-Celluloid::Actor[:echo_bot].start
+sleep
