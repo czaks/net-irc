@@ -103,7 +103,7 @@ class Net::IRC::Client
   def post(command, *params)
     m = Message.new(nil, command, params.map {|s|
       if s
-        s.force_encoding("ASCII-8BIT") if s.respond_to? :force_encoding
+        #s.force_encoding("ASCII-8BIT") if s.respond_to? :force_encoding
         #s.gsub(/\r\n|[\r\n]/, " ")
         s.tr("\r\n", " ")
       else
