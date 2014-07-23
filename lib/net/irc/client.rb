@@ -24,7 +24,7 @@ class Net::IRC::Client
   def start
     # reset config
     @server_config = Message::ServerConfig.new
-    @socket = TCPSocket.new(@host, @port)
+    @socket = (@opts.tcp_socket || TCPSocket).new(@host, @port)
     on_connected
     post PASS, @opts.pass if @opts.pass
     post NICK, @opts.nick

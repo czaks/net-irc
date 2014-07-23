@@ -14,8 +14,9 @@ require 'celluloid/io'
 class EchoBot < Net::IRC::Client
   include Celluloid::IO
   def initialize(addr,port,opt)
+    opt[:tcp_socket] = Celluloid::IO::TCPSocket
     super
-    async.start
+    start
   end
 
   def on_rpl_welcome(m)
