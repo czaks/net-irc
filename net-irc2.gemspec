@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   ]
   s.summary           = "library for implementing IRC server and client"
   s.description       = "library for implementing IRC server and client"
-  s.author            = "Marcin Łabanowski"
+  s.author            = "Marcin Labanowski"
   s.email             = "marcin@6irc.net"
   s.homepage          = "https://github.com/czaks/net-irc2/"
   s.executables       = %w()
